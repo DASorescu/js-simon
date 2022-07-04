@@ -17,13 +17,15 @@ Consigli del giorno:
 
 // ? Preparazione variabili 
 
-const timer = document.getElementById('timer');
+const timerElement = document.getElementById('timer-div');
 const numString = document.getElementById('number-string');
-console.log( timer , numString);
+
 const numbersArray = [];
+let count = 30;
+timerElement.innerText = count;
+let timer;
 
-
-
+console.log( timerElement , numString , count );
 
 // //FUNZIONI
 // funzione che crea numeri casuali 
@@ -31,6 +33,16 @@ function randomNumbers(a , b ){
     return Math.floor(Math.random() * (b) + a);
 }
 
+
+// //Cronometro
+
+timer = setInterval(() =>{
+    timerElement.innerText = --count;
+}, 1000);
+
+if(timerElement.innerText === 0){
+    clearInterval(timer);
+}
 
 
 
