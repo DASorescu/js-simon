@@ -11,19 +11,21 @@ Consigli del giorno:
 // stilizzazione css 
 // rimozione contenuto dei div 
 // dichiarazione dei div in js attraverso get element
+// quando il timer arriva a 0 far scomparire tutto e far apparire 5 prompt per far insserire all'utente 5 numeri 
 
 
 
 
-// ? Preparazione variabili 
-
+// ?presa di elementi dal dom
 const timerElement = document.getElementById('timer-div');
 const numString = document.getElementById('number-string');
 
+// ? Preparazione variabili 
 const numbersArray = [];
-let count = 30;
+const userNumbers = [];
+let count = 3;
 timerElement.innerText = count;
-let timer;
+
 
 console.log( timerElement , numString , count );
 
@@ -33,30 +35,17 @@ function randomNumbers(a , b ){
     return Math.floor(Math.random() * (b) + a);
 }
 
-
-// //Cronometro
-
-timer = setInterval(() =>{
-    timerElement.innerText = --count;
-}, 1000);
-
-if(timerElement.innerText === 0){
-    clearInterval(timer);
-}
-
-
-
 // ciclo per riempire l'array con i numeri casualmente generati 
 for(let i=0 ; i < 5 ; i++){
-
+    
     let newNumber ;
     do{
         let newNumber = randomNumbers(1,100);
         numbersArray.push(newNumber);
     }while(numbersArray.includes(newNumber));
-        
-}
     
+}
+
 // ciclo for per assegnare i valori dell'array al nostro elemento nel dom 
 let numbers = ''
 for(i = 0 ; i < numbersArray.length ; i++){
@@ -64,5 +53,28 @@ for(i = 0 ; i < numbersArray.length ; i++){
 }
 numString.innerText = numbers;
 
-    
+
+// //Cronometro
+
+const timer = setInterval(() =>{
+    timerElement.innerText = --count;
+}, 1000);
+
+if (count === 0){
+    clearInterval(timer);
+    // svuoto la stringa dei numeri
+    numString.innerText = '';
+    // chiedo all'utente 5 numeri 
+    do{
+        const userNumber = parseInt(prompt('inserisci un numero da 1 a 100'));
+        userNumbers.push(userNumber);
+
+    } while (userNumbers.length < 5)
+
+}
+
+
+
+
+
 
