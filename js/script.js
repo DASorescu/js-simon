@@ -23,9 +23,11 @@ const numString = document.getElementById('number-string');
 // ? Preparazione variabili 
 const numbersArray = [];
 const userNumbers = [];
-let count = 3;
-let delay = 32;
+let count = 5;
+let delay = 7;
+let score = 0;
 timerElement.innerText = count;
+
 
 
 console.log( timerElement , numString , count );
@@ -67,19 +69,30 @@ const timer = setInterval(() =>{
 
 }, 1000);
 
-// const questions = setInterval(() =>{
-//     if(delay === 0){
-//     // chiedo all'utente 5 numeri 
-//     do{
-//         const userNumber = parseInt(prompt('inserisci un numero da 1 a 100'));
-//         userNumbers.push(userNumber);
+const questions = setInterval(() =>{
+    --delay
 
-//     } while (userNumbers.length < 5)
-//     }
-//     else{
-//         --delay;
-//     }
-// })
+    if(delay === 0){
+    // chiedo all'utente 5 numeri 
+    do{
+        const userNumber = parseInt(prompt('inserisci un numero da 1 a 100'));
+        userNumbers.push(userNumber);
+
+    } while (userNumbers.length < 5)
+    }
+    else{
+        for(i=0 ; i<userNumbers.length ; i++){
+            if(numbersArray.includes(userNumbers[i])){
+                score++
+            }
+        }if(userNumbers.length === 5){
+            alert(`hai totalizzato ${score}punti`);
+            userNumbers.length--
+        }
+        return 
+
+    }
+} , 1000);
 
 
 
