@@ -75,10 +75,13 @@ const questions = setInterval(() =>{
     if(delay === 0){
     // chiedo all'utente 5 numeri 
     do{
-        const userNumber = parseInt(prompt('inserisci un numero da 1 a 100'));
+        let userNumber = parseInt(prompt('inserisci un numero da 1 a 100'));
+        if(isNaN(userNumber)){
+        userNumber = parseInt(prompt('inserisci un numero da 1 a 100'));
+        }else
         userNumbers.push(userNumber);
 
-    } while (userNumbers.length < 5)
+    } while (userNumbers.length < 5 || isNaN(userNumber))
     }
     else{
         for(i=0 ; i<userNumbers.length ; i++){
