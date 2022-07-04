@@ -1,0 +1,29 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-core{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.timer{
+    text-align: center;
+    font-size: 300px;
+    margin-bottom: 30px;
+}
+
+.number-string{
+    text-align: center;
+    
+    font-size: 150px;
+}
