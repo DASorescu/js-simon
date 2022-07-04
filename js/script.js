@@ -24,6 +24,7 @@ const numString = document.getElementById('number-string');
 const numbersArray = [];
 const userNumbers = [];
 let count = 3;
+let delay = 32;
 timerElement.innerText = count;
 
 
@@ -59,22 +60,29 @@ numString.innerText = numbers;
 const timer = setInterval(() =>{
     if(count !== 0){
         timerElement.innerText = --count;
-    }else return;
+    }else 
+    // svuoto la stringa dei numeri e termino il counter
+    numString.innerText = '';
+    return;
 
 }, 1000);
 
-if (count === 0){
-    clearInterval(timer);
-    // svuoto la stringa dei numeri
-    numString.innerText = '';
-    // chiedo all'utente 5 numeri 
-    do{
-        const userNumber = parseInt(prompt('inserisci un numero da 1 a 100'));
-        userNumbers.push(userNumber);
+// const questions = setInterval(() =>{
+//     if(delay === 0){
+//     // chiedo all'utente 5 numeri 
+//     do{
+//         const userNumber = parseInt(prompt('inserisci un numero da 1 a 100'));
+//         userNumbers.push(userNumber);
 
-    } while (userNumbers.length < 5)
+//     } while (userNumbers.length < 5)
+//     }
+//     else{
+//         --delay;
+//     }
+// })
 
-}
+
+
 
 
 
