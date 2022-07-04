@@ -57,7 +57,10 @@ numString.innerText = numbers;
 // //Cronometro
 
 const timer = setInterval(() =>{
-    timerElement.innerText = --count;
+    if(count !== 0){
+        timerElement.innerText = --count;
+    }else return;
+
 }, 1000);
 
 if (count === 0){
